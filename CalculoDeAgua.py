@@ -12,11 +12,12 @@ def calcular_objetivo_ml(peso_kg, nivel_actividad):
         objetivo_final = objetivo_base
         
     return objetivo_final
+
 def estado_hidratacion(consumo_ml, objetivo_ml):
 
     if consumo_ml < objetivo_ml:
         porcentaje = ((objetivo_ml - consumo_ml) / objetivo_ml) * 100
-        return "Te falta un " + str(round(porcentaje, 1)) + "% para llegar."
+        return "Te falta un " + str(round(porcentaje, 1)) + "% para llegar." # +
     elif consumo_ml == objetivo_ml:
         return "Has alcanzado tu objetivo."
     else:
@@ -30,14 +31,14 @@ while True:
     try:
         print("\n--- Control de Hidratación ---")
         peso = float(input("Ingrese su peso en kg: "))
-        actividad = input("Ingrese nivel de actividad (bajo, medio, alto): ").lower()
+        actividad = input("Ingrese nivel de actividad (bajo, medio, alto): ").lower()  # lower
         consumo = float(input("Ingrese la cantidad de agua consumida (ml): "))
         
         # Procesamiento
-        objetivo = calcular_objetivo_ml(peso, actividad)
+        objetivo = calcular_objetivo_ml(peso, actividad) #que pasa en esta linea de código
         mensaje = estado_hidratacion(consumo, objetivo)
         
-        print("Objetivo diario recomendado: " + str(round(objetivo, 1)) + " ml")
+        print("Objetivo diario recomendado: " + str(round(objetivo, 1)) + " ml") # round(objetivo, 1)
         print(mensaje)
         
         nueva_persona = {
