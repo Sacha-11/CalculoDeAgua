@@ -17,7 +17,8 @@ def estado_hidratacion(consumo_ml, objetivo_ml):
 
     if consumo_ml < objetivo_ml:
         porcentaje = ((objetivo_ml - consumo_ml) / objetivo_ml) * 100
-        return "Te falta un " + str(round(porcentaje, 1)) + "% para llegar." # +
+        return "Te falta un " + str(round(porcentaje, 1)) + "% para llegar." # + este es para por ejemplo normalmente es 2+2=4 pero con este es "2"+"2"=22
+        #es el otro metodo aparte de las comas 
     elif consumo_ml == objetivo_ml:
         return "Has alcanzado tu objetivo."
     else:
@@ -31,14 +32,15 @@ while True:
     try:
         print("\n--- Control de Hidratación ---")
         peso = float(input("Ingrese su peso en kg: "))
-        actividad = input("Ingrese nivel de actividad (bajo, medio, alto): ").lower()  # lower
+        actividad = input("Ingrese nivel de actividad (bajo, medio, alto): ").lower()  # lower, invierte de mayusculas a minusculas el texto 
         consumo = float(input("Ingrese la cantidad de agua consumida (ml): "))
         
         # Procesamiento
-        objetivo = calcular_objetivo_ml(peso, actividad) #que pasa en esta linea de código
+        objetivo = calcular_objetivo_ml(peso, actividad) #que pasa en esta linea de código, aca define el return de la linea 14 
         mensaje = estado_hidratacion(consumo, objetivo)
         
         print("Objetivo diario recomendado: " + str(round(objetivo, 1)) + " ml") # round(objetivo, 1)
+        #el round redondea el numero decimal por ejemplo 23,66666 a 23,7
         print(mensaje)
         
         nueva_persona = {
